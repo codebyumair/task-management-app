@@ -136,7 +136,7 @@ const Provider = ({ children }) => {
 
   const deleteTask = async (id) => {
     try {
-      const response = await fetch(`${host}/api/tasks/${id}`, {
+      await fetch(`${host}/api/tasks/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -144,8 +144,6 @@ const Provider = ({ children }) => {
         },
       });
 
-      const json = await response.json();
-      console.log(json);
       const newTasks = tasks.filter((task) => {
         return task._id !== id;
       });
@@ -158,20 +156,15 @@ const Provider = ({ children }) => {
 
   const requestForApproval = async (newStatus, id) => {
     try {
-      const response = await fetch(
-        `${host}/api/tasks/request-status-change/${id}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
-          },
-          body: JSON.stringify({ newStatus }),
-        }
-      );
+      await fetch(`${host}/api/tasks/request-status-change/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ newStatus }),
+      });
 
-      const json = await response.json();
-      console.log(json);
       toast.success("Request generated. Waiting for admin to approved");
     } catch (error) {
       toast.error(error.message);
@@ -180,20 +173,14 @@ const Provider = ({ children }) => {
 
   const approvedStatusChange = async (id, approved) => {
     try {
-      const response = await fetch(
-        `${host}/api/tasks/approve-status-change/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            token: localStorage.getItem("token"),
-          },
-          body: JSON.stringify({ approved }),
-        }
-      );
-
-      const json = await response.json();
-      console.log(json);
+      await fetch(`${host}/api/tasks/approve-status-change/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          token: localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ approved }),
+      });
     } catch (error) {
       toast.error(error.message);
     }

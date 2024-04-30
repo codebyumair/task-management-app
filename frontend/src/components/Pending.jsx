@@ -59,19 +59,18 @@ const Pending = () => {
         <header className="w-full p-5 bg-white flex justify-between ">
           <h1 className="text-2xl font-bold">Pending tasks</h1>
         </header>
-        <div className="p-5 min-w-full inline-block align-middle">
+        <div className="p-5 inline-block align-middle">
           {pendingTasks.length === 0 ? (
             <div className=" mt-14 w-full flex justify-center">
               <EmptyState />
             </div>
           ) : (
             <div className="overflow-hidden bg-white rounded-3xl">
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="divide-y divide-gray-200">
                 <thead>
                   <tr>
                     <TableHeading value="Task" />
                     <TableHeading value="Assignee" />
-                    <TableHeading value="Current Status" />
                     <TableHeading value="Requested Status" />
 
                     <TableHeading value="Action" />

@@ -34,16 +34,16 @@ const Dashboard = () => {
         <h1 className="text-2xl font-bold">Dashboard</h1>
       </header>
 
-      <div className="p-5 min-w-full inline-block align-middle">
+      <div className="p-5 inline-block align-middle">
         {isAdmin && <AddTask />}
 
         {tasks.length === 0 ? (
-          <div className=" mt-14 w-full flex justify-center">
+          <div className=" mt-14 flex justify-center">
             <EmptyState />
           </div>
         ) : (
           <div className="overflow-hidden bg-white rounded-3xl">
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className=" divide-y divide-gray-200">
               <thead>
                 <tr>
                   <TableHeading value="Task" />

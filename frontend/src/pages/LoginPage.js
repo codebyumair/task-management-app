@@ -60,6 +60,7 @@ const LoginPage = () => {
                       password: value,
                     }))
                   }
+                  type="password"
                   placeholder="Enter your password"
                 />
               </div>

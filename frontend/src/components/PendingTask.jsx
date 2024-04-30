@@ -33,14 +33,24 @@ const PendingTask = ({ pendingTask, handleApprove, handleReject }) => {
       <tr>
         <TableData value={pendingTask.taskName} />
         <TableData value={assignedToName} />
-        <TableData value={pendingTask.status.toUpperCase()} />
 
-        <TableData value={pendingTask.statusChangeRequest.newStatus} />
         <TableData
           value={
-            <>
+            <div className="flex flex-col justify-center gap-2">
+              <span className="text-xs font-bold text-gray-500 italic">
+                {pendingTask.status.toUpperCase()}
+              </span>
+              <span className="text-sm font-bold">
+                {pendingTask.status.toUpperCase()}
+              </span>
+            </div>
+          }
+        />
+        <TableData
+          value={
+            <div className="flex flex-col justify-center gap-2">
               <button
-                className="border-[1px] border-green-900 text-green-900 bg-green-300 inline-flex items-center justify-center px-3 py-2 font-bold leading-none rounded-full mr-2 uppercase text-xs"
+                className="border-[1px] border-green-900 text-green-900 bg-green-300 inline-flex items-center justify-center px-3 py-2 font-bold leading-none rounded-full uppercase text-xs"
                 onClick={handleApproveClick}
               >
                 Approve
@@ -51,7 +61,7 @@ const PendingTask = ({ pendingTask, handleApprove, handleReject }) => {
               >
                 Reject
               </button>
-            </>
+            </div>
           }
         />
       </tr>

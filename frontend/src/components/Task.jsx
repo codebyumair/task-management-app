@@ -73,7 +73,6 @@ const Task = ({ task }) => {
                 <button
                   onClick={() => {
                     requestForApproval(newStatus, task._id);
-                    console.log(newStatus);
                   }}
                   type="submit"
                   className="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-3xl text-[#e85d04] bg-[#ffee99] hover:bg-[#ffe14c] "
